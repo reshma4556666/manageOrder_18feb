@@ -1,0 +1,104 @@
+Get http://localhost:4004/catalog/$metadata
+
+###
+Get http://localhost:4004/catalog/SalesOrders
+
+###
+Get http://localhost:4004/catalog/SalesOrderItems
+
+###
+POST http://localhost:4004/catalog/SalesOrders HTTP/1.1
+Content-Type: application/json
+
+{
+  "ID": "1",
+  "description": "Order 1",
+  "customerNo": "C1"
+}
+
+###
+Get http://localhost:4004/catalog/SalesOrders(ID='1')
+
+###
+PATCH http://localhost:4004/catalog/SalesOrders(ID='1') HTTP/1.1
+Content-Type: application/json
+
+{
+  "description": "Test Description",
+  "customerNo": "C1"
+}
+
+###
+POST http://localhost:4004/catalog/SalesOrderItems HTTP/1.1
+Content-Type: application/json
+
+{
+  "salesorder_ID":"1",
+  "item": 10,
+  "material": "Pen",
+  "quantity": 100
+}
+
+###
+##Expand Entity to view child component
+Get http://localhost:4004/catalog/SalesOrders?$expand=items,customer($expand=addresses) HTTP/1.1
+
+###
+##Deep Insert for entity with Compositions
+##Deep Insert-Example 1
+
+POST http://localhost:4004/catalog/SalesOrders HTTP/1.1
+Content-Type: application/json
+
+{
+  "ID": "2",
+  "description": "Order 2",
+  "customerNo": "C1",
+  "items": [
+    {
+      "item": 10,
+      "material": "Laptop",
+      "quantity": 100
+    },
+    {
+      "item": 20,
+      "material": "Printer",
+      "quantity": 50
+    },
+    {
+      "item": 30,
+      "material": "Mobile",
+      "quantity": 20
+    }
+  ]
+}
+
+###
+##Deep Insert-Example 2
+POST http://localhost:4004/catalog/Customers
+Content-Type: application/json
+
+{
+  "customerNo": "C1",
+  "customerName": "Peter",
+  "addresses": {
+    "ID": 100,
+    "city": "Chennai",
+    "country": "IN",
+    "contact_phonenumber": "123-456-78",
+    "contact_email": "Peter@gmail.com"
+  }
+}
+###
+Get http://localhost:4004/catalog/Customers?$expand=addresses
+
+###
+Get http://localhost:4004/catalog/Addresses
+
+###
+##Notice SalesOrder and associated items will be deleted.
+DELETE http://localhost:4004/catalog/SalesOrders(ID='1')
+
+###
+##Notice Customer and associated address will be deleted.
+DELETE http://localhost:4004/catalog/Customers(customerNo='C1')
