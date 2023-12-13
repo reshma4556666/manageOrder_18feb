@@ -1,6 +1,6 @@
 using my.salesorder as my from '../db/data-model.cds';
 
-service CatalogService @(requires: 'authenticated-user') //@(path:'/catalog')
+service CatalogService @(requires: 'authenticated-user',path:'/SalesOrderService') 
 {
     @(restrict: [
         {
@@ -15,9 +15,10 @@ service CatalogService @(requires: 'authenticated-user') //@(path:'/catalog')
                 'DELETE'
             ],
             to   : 'Admin',
-            where: 'country=$user.Country'
+            where: 'salesorg=$user.salesorg'
         }
     ])
+    @odata.draft.enabled:true
     entity SalesOrders     as projection on my.SalesOrders;
 
     entity SalesOrderItems as projection on my.SalesOrderItems;

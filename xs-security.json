@@ -11,8 +11,8 @@
   ],
   "attributes": [
     {
-      "name": "Country",
-      "description": "Country",
+      "name": "salesorg",
+      "description": "salesorg",
       "valueType": "s",
       "valueRequired": false
     }
@@ -35,12 +35,12 @@
       "attribute-references": []
     },
     {
-      "name": "Admin-Country",
+      "name": "userattributes",
       "description": "generated",
-      "default-role-name": "Country Attribute of a User",
+      "default-role-name": "Attributes of a User",
       "scope-references": [],
       "attribute-references": [
-        "Country"
+        "salesorg"
       ]
     }
   ]

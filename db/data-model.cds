@@ -1,25 +1,26 @@
+using {cuid,managed} from '@sap/cds/common';
 namespace my.salesorder;
 
 type mystring : String(50) not null;
 
-entity SalesOrders {
-  key ID                     : String(10);
-      description            : mystring not null;
-      country                : String(10);
-      customerNo             : String(10);
-      virtual overBookingInd : Boolean;
-      virtual totalQuantity  : Decimal(10, 2);
+entity SalesOrders : managed {
+  key ID                     : String(10) @title : 'ID';
+      description            : mystring not null @title : 'Description';
+      salesorg               : String(10) @title : 'Sales Organization';
+      customerNo             : String(10) @title : 'Customer No';
+      virtual overBookingInd : Boolean @title : 'Over Booking Indicator';
+      virtual totalQuantity  : Decimal(10, 2) @title : 'Total Quantity';
       customer               : Association to Customers //unmanaged association
                                  on customer.customerNo = customerNo;
       items                  : Composition of many SalesOrderItems //managed composition (to many)
                                  on items.salesOrder = $self;
 }
 
-entity SalesOrderItems {
-  key salesOrder : Association to one SalesOrders; //managed association (to one)
-  key item       : Integer;
-      material   : String(18);
-      quantity   : Decimal(10, 2); //Precision , scale
+entity SalesOrderItems :cuid{       // introduce key property ID of type uuid for odata draft enablement
+      salesOrder : Association to one SalesOrders; //managed association (to one)
+      item       : Integer @title : 'ITEM';
+      material   : String(18) @title : 'Material';
+      quantity   : Decimal(10, 2) @title : 'Order Quantity'; //Precision , scale
 }
 
 entity Customers {
