@@ -1,4 +1,5 @@
 using my.salesorder as my from '../db/data-model.cds';
+using CV_SalesOrders from '../db/cv_models';
 
 service CatalogService @(requires: 'authenticated-user',path:'/SalesOrderService') 
 {
@@ -24,4 +25,8 @@ service CatalogService @(requires: 'authenticated-user',path:'/SalesOrderService
     entity SalesOrderItems as projection on my.SalesOrderItems;
     entity Customers       as projection on my.Customers;
     entity Addresses       as projection on my.Addresses;
+
+    //Consume Calculation view
+    function Get_CV_SalesOrder() returns String;
+    entity calcview_SalesOrders as projection on CV_SalesOrders;
 }

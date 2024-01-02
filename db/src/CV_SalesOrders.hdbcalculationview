@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="CV_SalesOrders" applyPrivilegeType="NONE" dataCategory="DIMENSION" dimensionType="STANDARD" schemaVersion="3.0" hierarchyGeneration="SQL" outputViewType="Projection" application="BAS" cacheInvalidationPeriod="NONE" enforceSqlExecution="true">
+<descriptions defaultDescription="CV_SalesOrders.hdbcalculationview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="MY_SALESORDER_SALESORDERS">
+    <resourceUri>MY_SALESORDER_SALESORDERS</resourceUri>
+  </DataSource>
+</dataSources>
+<snapshotProcedures/>
+<calculationViews/>
+<logicalModel id="MY_SALESORDER_SALESORDERS">
+  <attributes>
+    <attribute id="CREATEDAT" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDAT"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="CREATEDAT"/>
+    </attribute>
+    <attribute id="CREATEDBY" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CREATEDBY"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="CREATEDBY"/>
+    </attribute>
+    <attribute id="MODIFIEDAT" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODIFIEDAT"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="MODIFIEDAT"/>
+    </attribute>
+    <attribute id="MODIFIEDBY" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="MODIFIEDBY"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="MODIFIEDBY"/>
+    </attribute>
+    <attribute id="ID" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="ID"/>
+    </attribute>
+    <attribute id="DESCRIPTION" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="DESCRIPTION"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="DESCRIPTION"/>
+    </attribute>
+    <attribute id="SALESORG" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="SALESORG"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="SALESORG"/>
+    </attribute>
+    <attribute id="CUSTOMERNO" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="CUSTOMERNO"/>
+      <keyMapping columnObjectName="MY_SALESORDER_SALESORDERS" columnName="CUSTOMERNO"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>
