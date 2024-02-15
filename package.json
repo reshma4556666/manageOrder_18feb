@@ -25,7 +25,7 @@
   "cds": {
     "requires": {
       "db": "hana",
-      "auth": "dummy"
+      "auth": "xsuaa"
     },
     "hana": {
       "deploy-format": "hdbtable"

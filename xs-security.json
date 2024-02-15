@@ -1,4 +1,6 @@
 {
+  "xsappname": "ManageOrders",
+  "tenant-mode": "dedicated",
   "scopes": [
     {
       "name": "$XSAPPNAME.Viewer",
