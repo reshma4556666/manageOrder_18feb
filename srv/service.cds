@@ -28,5 +28,5 @@ service CatalogService @(requires: 'authenticated-user',path:'/SalesOrderService
 
     //Consume Calculation view
     function Get_CV_SalesOrder() returns String;
-    entity calcview_SalesOrders as projection on CV_SalesOrders;
+    ///entity calcview_SalesOrders as projection on CV_SalesOrders;
 }
