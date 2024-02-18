@@ -40,7 +40,7 @@ resources:
     parameters:
       service: hana
       service-plan: hdi-shared
-      service-name: ManageOrders-hdi
+      service-name: Manage-cfOrders-hdi
       config:
         schema: MANAGEORDER
         
